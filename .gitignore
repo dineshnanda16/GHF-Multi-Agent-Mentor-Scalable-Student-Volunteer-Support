@@ -1,6 +1,21 @@
+# .gitignore
+# Environment variables
+.env
+.env.local
+
+# Firebase credentials (NEVER push this!)
+serviceAccountKey.json
+
 # Virtual environment
 venv/
 env/
 __pycache__/
 *.pyc
-serviceAccountKey.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Streamlit cache
+.streamlit/
