@@ -11,7 +11,7 @@ from firestore_setup import db
 setup_logging()
 logger = logging.getLogger("student_agent_firestore")
 
-
+print("DEBUG_SECRETS_KEYS:", list(st.secrets.keys()))
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY # optional, if any code expects env var
 genai.configure(api_key=GEMINI_API_KEY)
