@@ -1,20 +1,21 @@
-# student_agent_firestore.py
 import os
 import logging
 from typing import Dict, Any
 
-from dotenv import load_dotenv
+import streamlit as st
 import google.generativeai as genai
 
 from logging_config import setup_logging
 from firestore_setup import db
 
-load_dotenv()
 setup_logging()
 logger = logging.getLogger("student_agent_firestore")
 
-# Configure Gemini
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY # optional, if any code expects env var
+genai.configure(api_key=GEMINI_API_KEY)
+
 MODEL_NAME = "gemini-2.5-flash"
 model = genai.GenerativeModel(MODEL_NAME)
 
